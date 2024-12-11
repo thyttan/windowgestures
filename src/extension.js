@@ -640,10 +640,11 @@ class Manager {
         }
         // TODO: Using non key shortcut for snap left/right
         if (snapRight) {
-            this._sendKeyPress([Clutter.KEY_Super_L, Clutter.KEY_Right]);
+            this._sendKeyPress([Clutter.KEY_Alt_L, Clutter.KEY_Super_L, Clutter.KEY_l]);
         }
         else {
-            this._sendKeyPress([Clutter.KEY_Super_L, Clutter.KEY_Left]);
+            this._sendKeyPress([Clutter.KEY_Alt_L, Clutter.KEY_Super_L, Clutter.KEY_h]);
+
         }
     }
 
