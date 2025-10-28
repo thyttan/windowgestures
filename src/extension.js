@@ -557,7 +557,7 @@ class Manager {
             return;
         }
         global.window_manager.emit("show-tile-preview",
-            global.display.get_focus_window(), new Meta.Rectangle(
+            global.display.get_focus_window(), new Mtk.Rectangle(
                 { x: rx, y: ry, width: rw, height: rh }
             )
             , this._monitorId
