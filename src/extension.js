@@ -1038,7 +1038,7 @@ class Manager {
             }
             if (setmove) {
                 if (this._targetWindow.allows_move() &&
-                    !this._targetWindow.get_maximized()) {
+                    !this._targetWindow.is_maximized()) {
                     this._edgeAction = WindowEdgeAction.MOVE;
                 }
             }
@@ -1100,7 +1100,7 @@ class Manager {
                             let holdMove = this._getTapHoldMove();
 
                             if (!allowMove || holdMove) {
-                                if (!this._targetWindow.get_maximized() &&
+                                if (!this._targetWindow.is_maximized() &&
                                     !this._targetWindow.isTiled) {
                                     this._edgeGestured = 1;
                                 }
@@ -1111,7 +1111,7 @@ class Manager {
                             else if (
                                 !this._edgeGestured &&
                                 !this._targetWindow.is_fullscreen() &&
-                                !this._targetWindow.get_maximized() &&
+                                !this._targetWindow.is_maximized() &&
                                 this._targetWindow.allows_move()) {
                                 this._edgeAction = WindowEdgeAction.MOVE;
                                 return this._swipeUpdateMove();
@@ -1550,7 +1550,7 @@ class Manager {
                         activeWin = global.display.get_focus_window();
                     }
                     if (activeWin && ((activeWin.allows_move() &&
-                        !activeWin.get_maximized()) || !isWin)) {
+                        !activeWin.is_maximized()) || !isWin)) {
                         activeWin.activate(
                             Meta.CURRENT_TIME
                         );
@@ -2502,7 +2502,7 @@ class Manager {
             }
 
             let winCanMax = activeWin.allows_move() && activeWin.can_maximize();
-            let winIsMaximized = activeWin.get_maximized();
+            let winIsMaximized = activeWin.is_maximized();
             let winMaxed = Meta.MaximizeFlags.BOTH == winIsMaximized;
             if (activeWin.isTiled) {
                 winIsMaximized = Meta.MaximizeFlags.VERTICAL;
