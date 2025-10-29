@@ -21,6 +21,7 @@ import Meta from 'gi://Meta';
 import St from 'gi://St';
 import Shell from 'gi://Shell';
 import Gio from 'gi://Gio';
+import Mtk from 'gi://Mtk';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
@@ -1330,7 +1331,7 @@ class Manager {
             if (this._isEdge(WindowEdgeAction.MOVE_SNAP_TOP)) {
                 if (this._targetWindow.can_maximize()) {
                     this._resetWinPos();
-                    this._targetWindow.maximize(Meta.MaximizeFlags.BOTH);
+                    this._targetWindow.set_maximize_flags(Meta.MaximizeFlags.BOTH);
                 }
             }
             else if (this._isEdge(WindowEdgeAction.MOVE_SNAP_LEFT)) {
@@ -2608,7 +2609,7 @@ class Manager {
                         }
                         if (this._actionWidgets[wid] && (progress > 0)) {
                             if (ui == 1) {
-                                activeWin.maximize(Meta.MaximizeFlags.BOTH);
+                                activeWin.set_maximize_flags(Meta.MaximizeFlags.BOTH);
                             }
                             else if (ui == 2) {
                                 this._setSnapWindow(0);
@@ -2647,7 +2648,7 @@ class Manager {
                             }
                             else if (ui == 6) {
                                 // restore
-                                activeWin.unmaximize(
+                                activeWin.set_unmaximize_flags(
                                     Meta.MaximizeFlags.BOTH
                                 );
                                 if (activeWin.isTiled) {
